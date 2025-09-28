@@ -246,11 +246,31 @@ button .fas {
   color: #333;
   margin-bottom: 15px;
   display: none;
+  animation: fadeInGlow 1.2s;
+  box-shadow: 0 0 18px 2px #00c7fd;
 }
 
 .success-message {
   background-color: #e8f4fc;
   color: #003c71;
+}
+
+@keyframes fadeInGlow {
+  0% {
+    opacity: 0;
+    box-shadow: 0 0 0 0 #00c7fd;
+    transform: scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    box-shadow: 0 0 18px 2px #00c7fd;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 18px 2px #00c7fd;
+    transform: scale(1);
+  }
 }
 
 /* Counter */
@@ -340,6 +360,40 @@ select {
   font-size: 15px;
   font-weight: 500;
   color: #475569;
+}
+
+/* Confetti container */
+.confetti {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 18px;
+  border-radius: 3px;
+  opacity: 0.8;
+  animation: confetti-fall 1.8s linear forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Mobile responsive */
